@@ -18,6 +18,7 @@ namespace ProductoApp.Controllers
         public IActionResult Index()
         {
             if (!IsLoggedIn()) return RedirectToAction("Login", "Account");
+            
             return View(_context.Products.ToList());
         }
 
@@ -31,6 +32,7 @@ namespace ProductoApp.Controllers
 
         public IActionResult Create()
         {
+            // pesta;a de creacion de producto
             if (!IsLoggedIn()) return RedirectToAction("Login", "Account");
             return View();
         }
