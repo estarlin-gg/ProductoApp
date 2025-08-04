@@ -1,0 +1,31 @@
+﻿@model IEnumerable<ProductoApp.Models.Product>
+
+<h2>Lista de Productos</h2>
+<a href="/Products/Create" class="btn btn-primary">Nuevo Producto</a>
+<a href="/Account/Logout" class="btn btn-danger">Cerrar Sesión</a>
+
+<table class="table table-bordered mt-3">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>Stock</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Price</td>
+                <td>@item.Stock</td>
+                <td>
+                    <a href="/Products/Details/@item.Id" class="btn btn-info btn-sm">Detalles</a>
+                    <a href="/Products/Edit/@item.Id" class="btn btn-warning btn-sm">Editar</a>
+                    <a href="/Products/Delete/@item.Id" class="btn btn-danger btn-sm">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
