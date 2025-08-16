@@ -6,20 +6,8 @@
 }
 
 <h2>Lista de Productos</h2>
-
-<form method="get" class="mb-3 d-flex gap-2 align-items-center">
-    <input type="text" name="search" placeholder="Buscar..." value="@search" class="form-control" style="max-width: 200px;" />
-    <input type="number" name="lowStock" placeholder="Stock menor a..." value="@lowStock" class="form-control" style="max-width: 150px;" />
-    <button type="submit" class="btn btn-primary btn-sm">Filtrar</button>
-    <a href="/Products/Index" class="btn btn-secondary btn-sm">Limpiar</a>
-    <a href="/Products/Create" class="btn btn-primary">Nuevo Producto</a>
-    <a href="/Products/ExportToExcel" class="btn btn-success btn-sm ms-auto">Exportar a Excel</a>
-</form>
-
-@if (ViewBag.Message != null)
-{
-    <div class="alert alert-info">@ViewBag.Message</div>
-}
+<a href="/Products/Create" class="btn btn-primary">Nuevo Producto</a>
+<a href="/Account/Logout" class="btn btn-danger">Cerrar Sesión</a>
 
 <table class="table table-bordered mt-3">
     <thead>
