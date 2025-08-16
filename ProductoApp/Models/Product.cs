@@ -1,18 +1,20 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace  ProductoApp.Models
+namespace ProductoApp.Models
 {
     public class Product
     {
         public int Id { get; set; }
 
-        [Required, StringLength(100)]
+        [Required(ErrorMessage = "El campo Nombre es obligatorio")]
         public string Name { get; set; }
 
-        [Range(0.01, 99999.99)]
+        [Required(ErrorMessage = "El campo Precio es obligatorio")]
+        [Range(0.01, 1000000, ErrorMessage = "El precio debe ser un número positivo")]
         public decimal Price { get; set; }
 
-        [Range(0, 10000)]
+        [Required(ErrorMessage = "El campo Stock es obligatorio")]
+        [Range(0, int.MaxValue, ErrorMessage = "El stock debe ser cero o más")]
         public int Stock { get; set; }
     }
 }

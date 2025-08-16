@@ -1,20 +1,36 @@
 ﻿@model ProductoApp.Models.Product
 
 <h2>Editar Producto</h2>
+
 <form asp-action="Edit" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
     <input type="hidden" asp-for="Id" />
-    <div class="form-group">
-        <label>Nombre</label>
-        <input asp-for="Name" class="form-control" />
+
+    <div class="form-group mb-3">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" id="Name" name="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
     </div>
-    <div class="form-group">
-        <label>Precio</label>
-        <input asp-for="Price" class="form-control" />
+
+    <div class="form-group mb-3">
+        <label asp-for="Price"></label>
+        <input asp-for="Price" id="Price" class="form-control" />
+        <span asp-validation-for="Price" class="text-danger"></span>
     </div>
-    <div class="form-group">
-        <label>Stock</label>
-        <input asp-for="Stock" class="form-control" />
+
+    <div class="form-group mb-3">
+        <label asp-for="Stock"></label>
+        <input asp-for="Stock" id="Stock" class="form-control" />
+        <span asp-validation-for="Stock" class="text-danger"></span>
     </div>
+
     <button type="submit" class="btn btn-primary">Actualizar</button>
-    <a href="/Products" class="btn btn-secondary">Cancelar</a>
+    <a href="/Products/Index" class="btn btn-secondary ms-2">Cancelar</a>
 </form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

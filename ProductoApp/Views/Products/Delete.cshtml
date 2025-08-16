@@ -1,12 +1,15 @@
 ﻿@model ProductoApp.Models.Product
 
-<h2>Eliminar Producto</h2>
-<p>¿Seguro que quieres eliminar este producto?</p>
+<h2>¿Estás seguro de eliminar este producto?</h2>
+
 <div>
-    <strong>@Model.Name</strong> - Precio: @Model.Price - Stock: @Model.Stock
+    <h4 id="ProductName">@Model.Name</h4>
+    <p><strong>Precio:</strong> @Model.Price</p>
+    <p><strong>Stock:</strong> @Model.Stock</p>
+
+    <form asp-action="Delete" method="post">
+        <input type="hidden" asp-for="Id" />
+        <button type="submit" class="btn btn-danger">Eliminar</button>
+        <a href="/Products/Index" class="btn btn-secondary ms-2">Cancelar</a>
+    </form>
 </div>
-<form asp-action="DeleteConfirmed" method="post">
-    <input type="hidden" asp-for="Id" />
-    <button type="submit" class="btn btn-danger">Eliminar</button>
-    <a href="/Products" class="btn btn-secondary">Cancelar</a>
-</form>
